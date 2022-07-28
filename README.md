@@ -1,6 +1,6 @@
-# 585.683 Introduction to Brain Computer Interfaces - Mod 07 - Assignment
+# 585.683 Introduction to Brain Computer Interfaces - Mod 09 - Assignment
 ## Description
-This is a repository dedicated to module 7 homework assignment. The purpose of this repository is to containerize an EEG analysis, including automation of building an OS, downloading the data set and checking it's integrity using hashing, and all presenting the analysis in a jupyter notebook.
+This is a repository dedicated to module 9 homework assignment. The purpose of this repository is to containerize an EEG analysis, including automation of building an OS, downloading the data set and checking it's integrity using hashing, and all presenting the analysis in a jupyter notebook.
 
 ## How to Install and Run
 1. Install Docker (https://www.docker.com/get-started/)
