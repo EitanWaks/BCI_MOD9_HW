@@ -3,3 +3,5 @@ mne==1.0.3
 numpy==1.23.1
 jupyterlab==3.4.4
 ipywidgets==7.7.1
+sklearn==1.1.1
+scipy==1.9.0
