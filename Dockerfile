@@ -10,7 +10,7 @@ ARG gitpassword=$GIT_PASSWORD
 
 # Set github credentials
 ARG githubnamespace=EitanWaks
-ARG githubreponame=BCI_MOD7_HW
+ARG githubreponame=BCI_MOD9_HW
 ARG githubrepo=${githubnamespace}/${githubreponame}.git
 
 # Set dataset name and filetype; used for the url (permalink)
