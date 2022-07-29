@@ -33,6 +33,7 @@ RUN echo "${DATASET_SHA256}  ./data/${datasetname}.${datasettype}" | sha256sum -
 RUN git clone https://${gitusername}:${gitpassword}@github.com/${githubrepo}
 
 # Upgrade pip and install packages
+RUN /usr/local/bin/python -m pip install --upgrade pip
 RUN python -m pip install -r ./${githubreponame}/requirements.txt
 
 CMD ["jupyter-lab","--ip=0.0.0.0","--no-browser","--allow-root"]
