@@ -51,4 +51,4 @@ RUN npm install npm@${npm_version} -g && \
     npm install n -g && \
     n ${nodejs_version}
 
-CMD ["jupyter-lab","--ip=0.0.0.0","--no-browser","--allow-root", "--NotebookApp.max_buffer_size=${jupyterlab_max_buffer_size}"] 
+CMD ["jupyter-lab","--ip=0.0.0.0","--no-browser","--allow-root", "--ServerApp.max_buffer_size=${jupyterlab_max_buffer_size}"] 
