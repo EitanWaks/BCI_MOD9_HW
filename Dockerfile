@@ -24,6 +24,9 @@ ARG DATASET_SHA256=943390216871aee03dac6cda77e0f0ba34bc9adfc9d8bc7790127981b13b7
 # JupyterLab max_buffer_size (set in bytes)
 ARG jupyterlab_max_buffer_size=24000000000
 
+# Node.js version (latest or lts)
+ARG npm_version=latest
+ARG nodejs_version=lts
 
 # Download High Gamma Dataset from https://gin.g-node.org/robintibor/high-gamma-dataset
 WORKDIR /app
@@ -39,5 +42,13 @@ RUN git clone https://${gitusername}:${gitpassword}@github.com/${githubrepo}
 # Upgrade pip and install packages
 RUN /usr/local/bin/python -m pip install --upgrade pip
 RUN python -m pip install -r ./${githubreponame}/requirements.txt
+
+# Install Node.js
+RUN apt-get update && apt-get install -y \
+    software-properties-common \
+    npm
+RUN npm install npm@${npm_version} -g && \
+    npm install n -g && \
+    n ${nodejs_version}
 
 CMD ["jupyter-lab","--ip=0.0.0.0","--no-browser","--allow-root", "--NotebookApp.max_buffer_size=${jupyterlab_max_buffer_size}"] 
