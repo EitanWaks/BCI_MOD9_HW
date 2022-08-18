@@ -21,6 +21,10 @@ ARG dataseturl=https://gin.g-node.org/robintibor/high-gamma-dataset/src/395f8658
 # Dataset hashed July, 20, 2022
 ARG DATASET_SHA256=943390216871aee03dac6cda77e0f0ba34bc9adfc9d8bc7790127981b13b7bc4
 
+# JupyterLab max_buffer_size (set in bytes)
+ARG jupyterlab_max_buffer_size=24000000000
+
+
 # Download High Gamma Dataset from https://gin.g-node.org/robintibor/high-gamma-dataset
 WORKDIR /app
 # ADD ${dataseturl} ./data/${datasetname}.${datasettype} #downloaded dataset does not load correctly
@@ -36,4 +40,4 @@ RUN git clone https://${gitusername}:${gitpassword}@github.com/${githubrepo}
 RUN /usr/local/bin/python -m pip install --upgrade pip
 RUN python -m pip install -r ./${githubreponame}/requirements.txt
 
-CMD ["jupyter-lab","--ip=0.0.0.0","--no-browser","--allow-root"]
+CMD ["jupyter-lab","--ip=0.0.0.0","--no-browser","--allow-root", "--NotebookApp.max_buffer_size=${jupyterlab_max_buffer_size}"] 
